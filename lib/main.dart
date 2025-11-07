@@ -15,9 +15,7 @@ class MyApp extends StatelessWidget {
       title: '1123150006, Muhammad Abdul Rozak',
       theme: ThemeData(
         useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.cyan,
-        ), //Nim belakang 7 jadi terpilih DeepPurple
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.cyan),
       ),
       home: const SplashScreen1(),
     );
