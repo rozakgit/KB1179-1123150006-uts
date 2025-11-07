@@ -53,8 +53,8 @@ class LoginScreen extends StatelessWidget {
                   decoration: InputDecoration(
                     prefixIcon: Icon(Icons.lock_outline),
                     suffixIcon: Icon(Icons.visibility_outlined),
-                    label: Text("Password"),
-                    hintText: 'Masukkan password Anda',
+                    label: Text("Kata Sandi"),
+                    hintText: 'Masukkan Kata Sandi Anda',
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(12)),
                       borderSide: BorderSide(color: Colors.grey[300]!),
