@@ -8,124 +8,233 @@ class SplashScreen1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Spacer(),
-            SizedBox(height: 50),
-            Container(
-              width: 250,
-              height: 250,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: Colors.cyan,
-                image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: AssetImage('assets/images/image1.png'),
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Color(0xFF00BCD4), // Cyan
+              Color(0xFF0097A7), // Dark Cyan
+              Color(0xFF006064), // Darker Cyan
+            ],
+          ),
+        ),
+        child: SafeArea(
+          child: Column(
+            children: [
+              const Spacer(),
+              // Animated Hero Image Container
+              Container(
+                width: 280,
+                height: 280,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  gradient: const LinearGradient(
+                    colors: [Colors.white, Color(0xFFE0F7FA)],
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.2),
+                      blurRadius: 30,
+                      offset: const Offset(0, 15),
+                    ),
+                    BoxShadow(
+                      color: Colors.white.withOpacity(0.5),
+                      blurRadius: 20,
+                      offset: const Offset(0, -10),
+                      spreadRadius: -5,
+                    ),
+                  ],
+                ),
+                child: Container(
+                  margin: const EdgeInsets.all(15),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    image: const DecorationImage(
+                      fit: BoxFit.cover,
+                      image: AssetImage('assets/images/image1.png'),
+                    ),
+                    border: Border.all(
+                      color: Colors.white.withOpacity(0.3),
+                      width: 3,
+                    ),
+                  ),
                 ),
               ),
-            ),
-            //tambahkan disini untuk widget widget lainnya nanti
-            SizedBox(height: 30),
-            Text(
-              'Selamat Datang',
-              style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
-            ),
-            SizedBox(height: 20),
-            Text(
-              'Lupa Membawa Dompet?',
-              style: TextStyle(fontSize: 20, color: Colors.grey[700]),
-            ),
-            SizedBox(height: 50),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  width: 12,
-                  height: 12,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Colors.cyan,
+              const SizedBox(height: 40),
+              // Welcome Text with Gradient
+              ShaderMask(
+                shaderCallback: (bounds) => const LinearGradient(
+                  colors: [Colors.white, Color(0xFFE0F7FA)],
+                ).createShader(bounds),
+                child: const Text(
+                  'Selamat Datang',
+                  style: TextStyle(
+                    fontSize: 42,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                    letterSpacing: 1.2,
                   ),
                 ),
-                SizedBox(width: 10),
-                Container(
-                  width: 12,
-                  height: 12,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Colors.grey,
+              ),
+              const SizedBox(height: 15),
+              // Subtitle with shadow
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 40),
+                child: Text(
+                  'Solusi Digital untuk Kemudahan Hidup Anda',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.white.withOpacity(0.9),
+                    height: 1.5,
+                    fontWeight: FontWeight.w400,
+                    shadows: [
+                      Shadow(
+                        color: Colors.black.withOpacity(0.3),
+                        offset: const Offset(0, 2),
+                        blurRadius: 4,
+                      ),
+                    ],
                   ),
                 ),
-                SizedBox(width: 10),
-                Container(
-                  width: 12,
-                  height: 12,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Colors.grey,
+              ),
+              const SizedBox(height: 50),
+              // Enhanced Page Indicators
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  // Active indicator with glow effect
+                  Container(
+                    width: 30,
+                    height: 8,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(4),
+                      color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.white.withOpacity(0.5),
+                          blurRadius: 10,
+                          spreadRadius: 2,
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              ],
-            ),
-            SizedBox(height: 50),
-            Container(
-              margin: EdgeInsets.symmetric(horizontal: 40),
-              child: SizedBox(
-                height: 50,
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => SplashScreen2()),
-                    );
-                  },
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.cyan),
-                    elevation: MaterialStateProperty.resolveWith<double>((
-                      states,
-                    ) {
-                      return states.contains(MaterialState.pressed) ? 2.0 : 8.0;
-                    }),
-                    padding: MaterialStateProperty.resolveWith<EdgeInsetsGeometry>((
-                      states,
-                    ) {
-                      // slightly reduce vertical padding when pressed to give "pressed-in" look
-                      return states.contains(MaterialState.pressed)
-                          ? EdgeInsets.symmetric(
-                              horizontal: 50.0,
-                              vertical: 12.0,
-                            )
-                          : EdgeInsets.symmetric(
-                              horizontal: 50.0,
-                              vertical: 15.0,
-                            );
-                    }),
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30.0),
+                  const SizedBox(width: 12),
+                  // Inactive indicators
+                  Container(
+                    width: 8,
+                    height: 8,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.white.withOpacity(0.4),
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  Container(
+                    width: 8,
+                    height: 8,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.white.withOpacity(0.4),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 60),
+              // Enhanced Continue Button
+              Container(
+                margin: const EdgeInsets.symmetric(horizontal: 40),
+                child: Container(
+                  width: double.infinity,
+                  height: 60,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30),
+                    gradient: LinearGradient(
+                      colors: [
+                        Colors.white.withOpacity(0.9),
+                        Colors.white.withOpacity(0.7),
+                      ],
+                    ),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.2),
+                        blurRadius: 15,
+                        offset: const Offset(0, 8),
+                      ),
+                      BoxShadow(
+                        color: Colors.white.withOpacity(0.3),
+                        blurRadius: 10,
+                        offset: const Offset(0, -5),
+                        spreadRadius: -2,
+                      ),
+                    ],
+                  ),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const SplashScreen2(),
+                        ),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.transparent,
+                      shadowColor: Colors.transparent,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
                       ),
                     ),
-                    overlayColor: MaterialStateProperty.resolveWith<Color?>((
-                      states,
-                    ) {
-                      if (states.contains(MaterialState.pressed))
-                        return Colors.black.withOpacity(0.12);
-                      return null;
-                    }),
-                    shadowColor: MaterialStateProperty.all(Colors.cyan),
-                  ),
-                  child: Text(
-                    'Continue',
-                    style: TextStyle(fontSize: 18.0, color: Colors.white),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'Lanjutkan',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: const Color(0xFF006064),
+                            letterSpacing: 0.5,
+                          ),
+                        ),
+                        const SizedBox(width: 10),
+                        Container(
+                          padding: const EdgeInsets.all(4),
+                          decoration: BoxDecoration(
+                            color: const Color(0xFF006064).withOpacity(0.1),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: const Icon(
+                            Icons.arrow_forward_rounded,
+                            color: Color(0xFF006064),
+                            size: 20,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
-            ),
-            SizedBox(height: 70),
-          ],
+              const SizedBox(height: 60),
+              // Skip button
+              TextButton(
+                onPressed: () {
+                  // Handle skip functionality if needed
+                },
+                child: Text(
+                  'Lewati',
+                  style: TextStyle(
+                    color: Colors.white.withOpacity(0.7),
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 30),
+            ],
+          ),
         ),
       ),
     );
