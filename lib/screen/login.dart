@@ -35,7 +35,7 @@ class LoginScreen extends StatelessWidget {
                     hint: Text("Masukkan email Anda"),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(12)),
-                      borderSide: BorderSide(color: Colors.grey[300]!),
+                      borderSide: BorderSide(color: Colors.cyan[300]!),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(12)),
@@ -137,7 +137,7 @@ class LoginScreen extends StatelessWidget {
                     },
                     icon: Icon(Icons.g_mobiledata, color: Colors.grey[800]),
                     label: Text(
-                      "Login dengan Google",
+                      "Masuk dengan Google",
                       style: TextStyle(color: Colors.grey[800]),
                     ),
                     style: OutlinedButton.styleFrom(
