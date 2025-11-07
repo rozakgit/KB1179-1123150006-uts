@@ -68,4 +68,20 @@ class LoginScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-               
+                SizedBox(height: 10),
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: TextButton(
+                    onPressed: () {
+                      // Handle forgot password
+                    },
+                    child: Text(
+                      'Lupa Password?',
+                      style: TextStyle(
+                        color: Colors.deepPurple[700],
+                        fontSize: 14,
+                      ),
+                    ),
+                  ),
+                ),
+                
