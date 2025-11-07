@@ -15,7 +15,7 @@ class LoginScreen extends StatelessWidget {
             child: Column(
               children: [
                 SizedBox(height: 10),
-                Icon(Icons.lock_outlined, size: 80, color: Colors.deepPurple),
+                Icon(Icons.lock_outlined, size: 80, color: Colors.cyan),
                 SizedBox(height: 10),
                 Text(
                   'Selamat Datang',
@@ -24,7 +24,7 @@ class LoginScreen extends StatelessWidget {
                 SizedBox(height: 10),
                 Text(
                   'Silahkan login untuk melanjutkan',
-                  style: TextStyle(fontSize: 15, color: Colors.deepPurple),
+                  style: TextStyle(fontSize: 15, color: Colors.cyan),
                 ),
                 SizedBox(height: 50),
                 TextField(
@@ -40,7 +40,7 @@ class LoginScreen extends StatelessWidget {
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(12)),
                       borderSide: BorderSide(
-                        color: Colors.deepPurple[700]!,
+                        color: Colors.cyan[700]!,
                         width: 2,
                       ),
                     ),
@@ -62,7 +62,7 @@ class LoginScreen extends StatelessWidget {
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(12)),
                       borderSide: BorderSide(
-                        color: Colors.deepPurple[700]!,
+                        color: Colors.cyan[700]!,
                         width: 2,
                       ),
                     ),
@@ -77,10 +77,7 @@ class LoginScreen extends StatelessWidget {
                     },
                     child: Text(
                       'Lupa Password?',
-                      style: TextStyle(
-                        color: Colors.deepPurple[700],
-                        fontSize: 14,
-                      ),
+                      style: TextStyle(color: Colors.cyan[700], fontSize: 14),
                     ),
                   ),
                 ),
@@ -88,7 +85,7 @@ class LoginScreen extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.deepPurple[700],
+                    backgroundColor: Colors.cyan[700],
                     foregroundColor: Colors.white,
                     padding: EdgeInsets.symmetric(vertical: 16),
                     shape: RoundedRectangleBorder(
