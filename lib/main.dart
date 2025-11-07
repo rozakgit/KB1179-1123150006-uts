@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.cyan),
-      ),
+      ), //done
       home: const SplashScreen1(),
     );
   }
